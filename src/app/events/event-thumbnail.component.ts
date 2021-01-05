@@ -22,6 +22,7 @@ import { Component, Input } from '@angular/core'
   `,
   styles: [`
     .bold { font-weight: bold; }
+    .red { color: red !important; }
     .green { color: green !important;}
     .thumbnail { min-height: 210px; }
     .pad-left { margin-left: 10px; }
@@ -33,7 +34,15 @@ export class EventThumbNailComponent{
   @Input() event: any
 
   getClass(): any {
-    const applyClass: boolean = this.event && this.event.time === '8:00 am';
-    return { bold: applyClass, green: applyClass }
+    switch (this.event.time) {
+      case '8:00 am':
+        return { bold: true, green: true, red: false }
+        break;
+      case '10:00 am':
+          return { bold: true, green: false, red: true }
+          break;
+      default:
+        return { bold: true }
+    }
   }
 }
