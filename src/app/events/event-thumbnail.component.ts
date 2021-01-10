@@ -1,48 +1,38 @@
-import { from } from "rxjs";
 import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'event-thumbnail',
   template: `
-    <div class="wll hoverwell thumbnail">
-      <h2>{{event.name}}</h2>
-      <div>Date: {{event.date}}</div>
-      <div [ngClass]= "getClass()"[ngSwitch]="event?.time">Time: {{event.time}}
+    <div class="well hoverwell thumbnail">
+      <h2>{{event?.name}}</h2>
+      <div>Date: {{event?.date}}</div>
+      <div [ngStyle]="getStartTimeStyle()" [ngSwitch]="event?.time">Time: {{event?.time}}
         <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
         <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
         <span *ngSwitchDefault>(Normal Start)</span>
       </div>
-      <div>Price: \${{event.price}}</div>
+      <div>Price: \${{event?.price}}</div>
       <div *ngIf="event?.location">
-        <span>Location: {{event.location?.address}}</span>
-        <span class="pad-left">{{event.location?.city}}, {{event.location?.country}}</span>
+        <span>Location: {{event?.location?.address}}</span>
+        <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
       </div>
-      <div *ngIf="event?.onlineUrl">Event URL: {{event.onlineUrl}}</div>
+      <div *ngIf="event?.onlineUrl">
+        Online URL: {{event?.onlineUrl}}
+      </div>
     </div>
   `,
   styles: [`
-    .bold { font-weight: bold; }
-    .red { color: red !important; }
-    .green { color: green !important;}
     .thumbnail { min-height: 210px; }
     .pad-left { margin-left: 10px; }
-    .well div { color: #bbb;}
+    .well div { color: #bbb; }
   `]
 })
+export class EventThumbnailComponent {
+  @Input() event:any
 
-export class EventThumbNailComponent{
-  @Input() event: any
-
-  getClass(): any {
-    switch (this.event.time) {
-      case '8:00 am':
-        return { bold: true, green: true, red: false }
-        break;
-      case '10:00 am':
-          return { bold: true, green: false, red: true }
-          break;
-      default:
-        return { bold: true }
-    }
+  getStartTimeStyle():any {
+    if (this.event && this.event.time === '8:00 am')
+      return {color: '#003300', 'font-weight': 'bold'}
+    return {}
   }
-}
+} 

@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'events-app',
   template: `
-  <app-navbar></app-navbar>
-  <event-list></event-list>
+    <nav-bar></nav-bar>
+    <events-list></events-list>
   `
 })
 export class EventsAppComponent {
