@@ -8,6 +8,11 @@ getEvents() {
     return events
 }
 
+getEvent(id: number) {
+  console.log(id);
+  return events.find(event => event.id === id)
+}
+
 }
 
 const events = [
