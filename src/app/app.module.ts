@@ -13,6 +13,8 @@ import { ToastrService } from './common/Toastr.Service'
 import { EventDetails } from './events/events-detail/events-detail.component';
 import { Error404Component } from './errors/404.component';
 import { EventRouteActivator } from './events/events-detail/event-route-activator.service';
+import { EventListResolver } from './events/events-list-resolver.service'
+
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { EventRouteActivator } from './events/events-detail/event-route-activato
   providers: [
     EventService,
     ToastrService,
-    EventRouteActivator
+    EventRouteActivator,
+    EventListResolver
   ],
   declarations: [
     EventsAppComponent,
