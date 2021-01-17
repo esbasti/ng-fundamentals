@@ -13,7 +13,8 @@ import { ToastrService } from './common/Toastr.Service'
 import { EventDetails } from './events/events-detail/events-detail.component';
 import { Error404Component } from './errors/404.component';
 import { EventRouteActivator } from './events/events-detail/event-route-activator.service';
-import { EventListResolver } from './events/events-list-resolver.service'
+import { EventListResolver } from './events/events-list-resolver.service';
+import { TestComponent } from './shared/test/test.component'
 
 
 
@@ -34,7 +35,8 @@ import { EventListResolver } from './events/events-list-resolver.service'
     EventThumbnailComponent,
     NavBarComponent,
     EventDetails,
-    Error404Component
+    Error404Component,
+    TestComponent
   ],
   bootstrap: [EventsAppComponent]
 })
