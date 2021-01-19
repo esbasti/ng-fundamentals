@@ -22,4 +22,6 @@ import { LoginComponent } from './login.component'
 
   ]
 })
-export class UserModule { }
+export class UserModule { 
+
+}
