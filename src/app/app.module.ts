@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { RouterModule, ActivatedRouteSnapshot } from '@angular/router'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import {
   EventsListComponent,
@@ -9,24 +10,22 @@ import {
   EventDetailsComponent,
   CreateEventComponent,
   EventRouteActivator,
-  EventListResolver
+  EventListResolver,
+  CreateSessionComponent
 } from './events/index'
 import { EventsAppComponent } from './events-app.component'
 import { NavBarComponent } from './nav/nav-bar.component'
 import { ToastrService } from './common/toastr.service'
 import { appRoutes } from './routes'
-import { UserModule } from './user/user.module'
-import { Error404Component } from './errors/404.component';
+import { Error404Component } from './errors/404.component'
 import { AuthService } from './user/auth.service'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
-    UserModule
+    RouterModule.forRoot(appRoutes)
   ],
   declarations: [
     EventsAppComponent,
@@ -36,23 +35,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     NavBarComponent,
     CreateEventComponent,
     Error404Component,
+    CreateSessionComponent
   ],
   providers: [
-    EventService,
-    ToastrService,
+    EventService, 
+    ToastrService, 
     EventRouteActivator,
     EventListResolver,
-    {
-      provide: 'canDeactivateCreateEvent',
-      useValue: checkDirtyState
-    },
-    AuthService
+    AuthService,
+    { 
+      provide: 'canDeactivateCreateEvent', 
+      useValue: checkDirtyState 
+    }
   ],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule {}
 
-function checkDirtyState(component:CreateEventComponent) {
+export function checkDirtyState(component:CreateEventComponent) {
   if (component.isDirty)
     return window.confirm('You have not saved this event, do you really want to cancel?')
   return true

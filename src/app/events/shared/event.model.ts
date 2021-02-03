@@ -1,4 +1,4 @@
-export interface IEvent{
+export interface IEvent {
   id: number
   name: string
   date: Date
@@ -9,8 +9,8 @@ export interface IEvent{
     address: string
     city: string
     country: string
-  }
-  onlineUrl?: string
+  },
+  onlineUrl?: string,
   sessions: ISession[]
 }
 

@@ -4,16 +4,15 @@ import { RouterModule } from '@angular/router'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { userRoutes } from './user.routes'
-import { ProfileComponent } from './profile.component';
+import { ProfileComponent } from './profile.component'
 import { LoginComponent } from './login.component'
-
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     FormsModule,
-    RouterModule.forChild(userRoutes),
+    ReactiveFormsModule,
+    RouterModule.forChild(userRoutes)
   ],
   declarations: [
     ProfileComponent,
@@ -23,6 +22,4 @@ import { LoginComponent } from './login.component'
 
   ]
 })
-export class UserModule { 
-
-}
+export class UserModule { }

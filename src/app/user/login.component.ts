@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core'
 import { AuthService } from './auth.service'
+import { Router } from '@angular/router'
 
 @Component({
-  selector: 'app-login',
   templateUrl: './login.component.html',
   styles: [`
-    em { float:right; color:#E05c65; padding-left:10px}
+    em { float:right; color:#E05C65; padding-left:10px; }
   `]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  username
+  password
+  mouseoverLogin
 
-  constructor(private authService:AuthService, private router:Router) { }
+  constructor(private authService:AuthService, private router:Router) {
 
-  ngOnInit() {
   }
 
   login(formValues) {
@@ -24,5 +25,4 @@ export class LoginComponent implements OnInit {
   cancel() {
     this.router.navigate(['events'])
   }
-
 }

@@ -4,12 +4,10 @@ import { ToastrService } from '../common/toastr.service'
 import { ActivatedRoute } from '@angular/router'
 import { IEvent } from './shared/index'
 
- let toastr
-
 @Component({
- template: `
+  template: `
   <div>
-    <h1>Upcoming Angular Events</h1>
+    <h1>Upcoming Angular 2 Events</h1>
     <hr/>
     <div class="row">
       <div *ngFor="let event of events" class="col-md-5">
@@ -20,11 +18,10 @@ import { IEvent } from './shared/index'
   `
 })
 export class EventsListComponent implements OnInit {
-
-  events:IEvent
+  events:IEvent[]
 
   constructor(private eventService: EventService, private toastr: ToastrService, private route:ActivatedRoute) {
-
+    
   }
 
   ngOnInit() {
