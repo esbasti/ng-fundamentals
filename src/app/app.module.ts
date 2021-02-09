@@ -12,7 +12,8 @@ import {
   EventRouteActivator,
   EventListResolver,
   CreateSessionComponent,
-  SessionList
+  SessionList,
+  DurationPipe
 } from './events/index'
 import { EventsAppComponent } from './events-app.component'
 import { NavBarComponent } from './nav/nav-bar.component'
@@ -40,7 +41,8 @@ import { AuthService } from './user/auth.service'
     Error404Component,
     CreateSessionComponent,
     SessionList,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   providers: [
     EventService,
